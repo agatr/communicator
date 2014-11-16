@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1416149086 source:c:\users\agnieszka\desktop\local\timegreeting\main.cpp
+	<iostream>
+	<ctime>
+
