@@ -28,10 +28,10 @@ int main()
   // IP address, and port for the socket that is being bound.
   sockaddr_in service;
   service.sin_family = AF_INET;
-  service.sin_addr.s_addr = inet_addr("127.0.0.1");
+  service.sin_addr.s_addr = inet_addr("0.0.0.0");
   service.sin_port = htons(55555);
 
-  if (bind(ListenSocket, (SOCKADDR*) &service, sizeof(service)) == SOCKET_ERROR)
+  if (bind(ListenSocket, (SOCKADDR*)&service, sizeof(service)) == SOCKET_ERROR)
   {
     printf("Server: bind() failed.\n");
     closesocket(ListenSocket);

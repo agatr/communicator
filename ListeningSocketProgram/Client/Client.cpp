@@ -29,12 +29,12 @@ int main()
     sockaddr_in clientService;
 
     clientService.sin_family = AF_INET;
-    clientService.sin_addr.s_addr = inet_addr("127.0.0.1");
+    clientService.sin_addr.s_addr = inet_addr("192.168.2.106");
     clientService.sin_port = htons(55555);
 
     if (connect(m_socket, (SOCKADDR*)&clientService, sizeof(clientService)) == SOCKET_ERROR)
     {
-        printf("Client: connect() - Failed to connect.\n");
+        printf("Client: connect() - Failed to connect.\n", WSAGetLastError());
         WSACleanup();
         return 0;
     }
