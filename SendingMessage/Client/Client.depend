@@ -1,0 +1,16 @@
+# depslib dependency file v1.0
+1417597850 source:c:\users\agnieszka\desktop\local\multipleconnections\mixed-client\main.cpp
+	<WinSock2.h>
+	<Windows.h>
+	<iostream>
+	<string>
+	<stdio.h>
+
+1417621966 source:c:\users\agnieszka\desktop\local\mixed-client\main.cpp
+	<WinSock2.h>
+	<Windows.h>
+	<iostream>
+	<string>
+	<stdio.h>
+	<ctime>
+

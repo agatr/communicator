@@ -1,0 +1,16 @@
+# depslib dependency file v1.0
+1417639668 source:c:\users\agnieszka\desktop\local\mixed-server\main.cpp
+	<conio.h>
+	<stdio.h>
+	<WinSock2.h>
+	<Windows.h>
+	<iostream>
+	<ctime>
+
+1417376029 c:\users\agnieszka\desktop\local\mixed-server\header.h
+	<conio.h>
+	<stdio.h>
+	<WinSock2.h>
+	<Windows.h>
+	<iostream>
+
