@@ -1,0 +1,61 @@
+# depslib dependency file v1.0
+1418506463 source:c:\users\agnieszka\desktop\local\communicator\listen.cpp
+	<WinSock2.h>
+	<Windows.h>
+	<iostream>
+	<string>
+	<stdio.h>
+	<ctime>
+	"Listen.h"
+
+1418506235 c:\users\agnieszka\desktop\local\communicator\listen.h
+	<conio.h>
+	<stdio.h>
+	<WinSock2.h>
+	<Windows.h>
+	<iostream>
+	<ctime>
+
+1418505310 source:c:\users\agnieszka\desktop\local\communicator\main.cpp
+	<WinSock2.h>
+	<Windows.h>
+	<iostream>
+	<string>
+	<stdio.h>
+	<ctime>
+	"Listen.h"
+	"Send.h"
+
+1418506042 c:\users\agnieszka\desktop\local\communicator\send.h
+	<WinSock2.h>
+	<Windows.h>
+	<iostream>
+	<string>
+	<stdio.h>
+	<ctime>
+
+1418502215 c:\users\agnieszka\desktop\local\communicator\socket.h
+	<WinSock2.h>
+	<Windows.h>
+	<iostream>
+	<string>
+	<stdio.h>
+
+1418506581 source:c:\users\agnieszka\desktop\local\communicator\send.cpp
+	<WinSock2.h>
+	<Windows.h>
+	<iostream>
+	<string>
+	<stdio.h>
+	<ctime>
+	"Send.h"
+
+1418502450 source:c:\users\agnieszka\desktop\local\communicator\socket.cpp
+	<WinSock2.h>
+	<Windows.h>
+	<iostream>
+	<string>
+	<stdio.h>
+	<ctime>
+	"Socket.h"
+
