@@ -14,9 +14,8 @@ public:
     SOCKADDR_IN conService;
     SOCKET sockSocket;
     SOCKET acceptSocket;
-    int connectToSocket(const char *IP);
-    void initializeWinsock();
-    int createSocket();
-    int sendMessage();
+    bool connectToSocket(const char *IP);
+    bool initializeWinsockAndCreateSocket();
+    bool sendMessage();
     void currentDate();
 };

@@ -5,21 +5,23 @@
 #include <iostream>
 #include <ctime>
 
+
 using namespace std;
 
 class Listen // class for part of the project which listens
 {
 public:
     SOCKET sockSocket;
+    SOCKET communicatorSocket;
+    // listenObj.communicatorSocket.initializeWinsockAndCreateSocket();
     SOCKET acceptSocket;
     SOCKADDR_IN service;
     long iResult;
     int servlen;
-    void initializeWinsock();
-    int createSocket();
-    int bindSocket();
-    int listenOnSocket();
-    int acceptConnection();
-    int recvMessage();
+    bool initializeWinsockAndCreateSocket();
+    bool bindSocket(SOCKET socketName);
+    bool listenOnSocket();
+    bool acceptConnection();
+    bool recvMessage();
     void currentDate();
 };

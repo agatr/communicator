@@ -6,6 +6,7 @@
 #include <ctime>
 
 #include "Listen.h"
+#include "communicatorSocket.h"
 
 void Listen::currentDate()
 {
@@ -15,7 +16,7 @@ void Listen::currentDate()
 }
 
 // method responsible for initializing the Winsock
-void Listen::initializeWinsock()
+bool Listen::initializeWinsockAndCreateSocket()
 {
     WSAData wsaData; // initialize
     iResult = WSAStartup(MAKEWORD(2,1), &wsaData);
@@ -24,54 +25,51 @@ void Listen::initializeWinsock()
          cout << "Error at WSAStartup()" <<endl;
     else
          cout << "WSAStartup() is OK." <<endl;
-}
 
-// method creating socket
-int Listen::createSocket()
-{
+    // create socket
     sockSocket = socket(AF_INET,SOCK_STREAM,IPPROTO_TCP); // create a socket
     if (sockSocket == INVALID_SOCKET) // check for errors
     {
         cout << "Error at socket(): " << WSAGetLastError();
         WSACleanup();
-        return 0;
+        return true;
     }
     else
         cout << "Socket() is OK." <<endl;
-    return 0;
+    return true;
 }
 
-int Listen::bindSocket() // binding the socket to local IP address and port
+bool Listen::bindSocket(SOCKET socketName) // binding the socket to local IP address and port
 {
     service.sin_addr.s_addr = inet_addr("0.0.0.0");
     service.sin_family = AF_INET;
     service.sin_port = htons(55555);
 
-    if (bind(sockSocket, (SOCKADDR*)&service, sizeof(service)) == SOCKET_ERROR) // cheking for errors
+    if (bind(socketName, (SOCKADDR*)&service, sizeof(service)) == SOCKET_ERROR) // cheking for errors
     {
         cout << "Bind() failed." << endl;
-        closesocket(sockSocket);
-        return 0;
+        closesocket(socketName);
+        return true;
     }
     else
         cout << "Bind() is OK." <<endl;
-    return 0;
+    return true;
 }
 
-int Listen::listenOnSocket() // method listening for connections
+bool Listen::listenOnSocket() // method listening for connections
 {
     listen(sockSocket, SOMAXCONN);
     if (listen(sockSocket, 10) == SOCKET_ERROR) // check for errors
     {
         cout << "Error listening on socket." << endl;
-        return 1;
+        return true;
     }
     else
         cout << "Listen() is OK." <<endl;
-    return 0;
+    return true;
 }
 
-int Listen::acceptConnection() // method accepting the connection
+bool Listen::acceptConnection() // method accepting the connection
 {
     servlen = sizeof(service);
     cout << "Waiting for user to connect..." << endl;
@@ -82,10 +80,10 @@ int Listen::acceptConnection() // method accepting the connection
         cout << "A coonnection was found" <<endl<<endl;
     }
     sockSocket = acceptSocket;
-    return 0;
+    return true;
 }
 
-int Listen::recvMessage()
+bool Listen::recvMessage()
 {
     do
     {
@@ -98,8 +96,10 @@ int Listen::recvMessage()
         std::cout << Buffer <<endl<<endl;
 
     }while(iResult>0);
+    //enters indefinite loop and sends last message forever
+    /*while((sockSocket != INVALID_SOCKET) || (iResult>0));*/
 
     closesocket(sockSocket);
     WSACleanup();
-    return 0;
+    return true;
 }

@@ -15,7 +15,7 @@ void Send::currentDate()
 }
 
 // method responsible for initializing the Winsock
-void Send::initializeWinsock()
+bool Send::initializeWinsockAndCreateSocket()
 {
     WSAData wsaData; // initialize
     iResult = WSAStartup(MAKEWORD(2,1), &wsaData);
@@ -24,24 +24,21 @@ void Send::initializeWinsock()
          cout << "Error at WSAStartup()" <<endl;
     else
          cout << "WSAStartup() is OK." <<endl;
-}
 
-// method creating socket
-int Send::createSocket()
-{
+    // create socket
     sockSocket = socket(AF_INET,SOCK_STREAM,IPPROTO_TCP); // create a socket
     if (sockSocket == INVALID_SOCKET) // check for errors
     {
         cout << "Error at socket(): " << WSAGetLastError();
         WSACleanup();
-        return 0;
+        return true;
     }
     else
         cout << "Socket() is OK." <<endl;
-    return 0;
+    return true;
 }
 
-int Send::connectToSocket(const char *IP) // connect to  socket based on the IP given as an argument (in main() I ask the user to give the IP)
+bool Send::connectToSocket(const char *IP) // connect to  socket based on the IP given as an argument (in main() I ask the user to give the IP)
 {
     conService.sin_addr.s_addr = inet_addr(IP); // connect to the ipnuted IP
     conService.sin_family = AF_INET;
@@ -51,16 +48,16 @@ int Send::connectToSocket(const char *IP) // connect to  socket based on the IP 
     {
         cout << "Failed to connect: " << WSAGetLastError();
         WSACleanup();
-        return 0;
+        return true;
     }
     else
     {
         cout << "Connected." <<endl;
     }
-    return 0;
+    return true;
 }
 
-int Send::sendMessage() // sending messages in infinite loop
+bool Send::sendMessage() // sending messages in infinite loop
 {
     for (;;)
     {
@@ -74,5 +71,5 @@ int Send::sendMessage() // sending messages in infinite loop
     }
     closesocket(sockSocket);
     WSACleanup();
-    return 0;
+    return true;
 }

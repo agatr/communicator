@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1418506463 source:c:\users\agnieszka\desktop\local\communicator\listen.cpp
+1419184384 source:c:\users\agnieszka\desktop\local\communicator\listen.cpp
 	<WinSock2.h>
 	<Windows.h>
 	<iostream>
@@ -7,8 +7,9 @@
 	<stdio.h>
 	<ctime>
 	"Listen.h"
+	"communicatorSocket.h"
 
-1418506235 c:\users\agnieszka\desktop\local\communicator\listen.h
+1419184470 c:\users\agnieszka\desktop\local\communicator\listen.h
 	<conio.h>
 	<stdio.h>
 	<WinSock2.h>
@@ -16,7 +17,7 @@
 	<iostream>
 	<ctime>
 
-1418505310 source:c:\users\agnieszka\desktop\local\communicator\main.cpp
+1419182102 source:c:\users\agnieszka\desktop\local\communicator\main.cpp
 	<WinSock2.h>
 	<Windows.h>
 	<iostream>
@@ -25,8 +26,9 @@
 	<ctime>
 	"Listen.h"
 	"Send.h"
+	"communicatorSocket.h"
 
-1418506042 c:\users\agnieszka\desktop\local\communicator\send.h
+1419152228 c:\users\agnieszka\desktop\local\communicator\send.h
 	<WinSock2.h>
 	<Windows.h>
 	<iostream>
@@ -34,14 +36,14 @@
 	<stdio.h>
 	<ctime>
 
-1418502215 c:\users\agnieszka\desktop\local\communicator\socket.h
+1419156993 c:\users\agnieszka\desktop\local\communicator\socket.h
 	<WinSock2.h>
 	<Windows.h>
 	<iostream>
 	<string>
 	<stdio.h>
 
-1418506581 source:c:\users\agnieszka\desktop\local\communicator\send.cpp
+1419152228 source:c:\users\agnieszka\desktop\local\communicator\send.cpp
 	<WinSock2.h>
 	<Windows.h>
 	<iostream>
@@ -50,7 +52,7 @@
 	<ctime>
 	"Send.h"
 
-1418502450 source:c:\users\agnieszka\desktop\local\communicator\socket.cpp
+1419156993 source:c:\users\agnieszka\desktop\local\communicator\socket.cpp
 	<WinSock2.h>
 	<Windows.h>
 	<iostream>
@@ -58,4 +60,22 @@
 	<stdio.h>
 	<ctime>
 	"Socket.h"
+
+1419184342 source:c:\users\agnieszka\desktop\local\communicator\communicatorsocket.cpp
+	<conio.h>
+	<stdio.h>
+	<WinSock2.h>
+	<Windows.h>
+	<iostream>
+	<ctime>
+	"communicatorSocket.h"
+	"Listen.h"
+
+1419180834 c:\users\agnieszka\desktop\local\communicator\communicatorsocket.h
+	<conio.h>
+	<stdio.h>
+	<WinSock2.h>
+	<Windows.h>
+	<iostream>
+	<ctime>
 
