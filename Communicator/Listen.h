@@ -10,18 +10,14 @@ using namespace std;
 
 class Listen // class for part of the project which listens
 {
-public:
-    SOCKET sockSocket;
-    SOCKET communicatorSocket;
-    // listenObj.communicatorSocket.initializeWinsockAndCreateSocket();
-    SOCKET acceptSocket;
-    SOCKADDR_IN service;
-    long iResult;
-    int servlen;
-    bool initializeWinsockAndCreateSocket();
-    bool bindSocket(SOCKET socketName);
-    bool listenOnSocket();
-    bool acceptConnection();
-    bool recvMessage();
-    void currentDate();
+    public:
+        SOCKET sockSocket;
+        SOCKET acceptSocket;
+        SOCKADDR_IN service;
+        long iResult;
+        int servlen;
+        bool bindSocket(SOCKET socketName);
+        bool listenOnSocket(SOCKET socketName);
+        bool acceptConnection(SOCKET socketName);
+        bool recvMessage(SOCKET socketName);
 };

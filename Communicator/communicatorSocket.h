@@ -7,12 +7,10 @@
 
 using namespace std;
 
-class CommunicatorSocketClass // class Socket - this class is not dependent on if the object of the class sends or listens - it has methods common for both of them
+class CommunicatorSocket // class Socket - this class is not dependent on if the object of the class sends or listens - it has methods common for both of them
 {
-public:
-    long iResult;
-    SOCKET communicatorSocket;
-    bool initializeWinsockAndCreateSocket();
-    //bool createSocket();
-    void currentDate();
+    public:
+        long iResult;
+        bool initializeWinsockAndCreateSocket(SOCKET &socketName);
+        void currentDate();
 };

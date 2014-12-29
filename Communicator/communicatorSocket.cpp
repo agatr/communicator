@@ -5,12 +5,12 @@
 #include <iostream>
 #include <ctime>
 
-#include "communicatorSocket.h"
+#include "CommunicatorSocket.h"
 #include "Listen.h"
 
 using namespace std;
 
-bool CommunicatorSocketClass::initializeWinsockAndCreateSocket()
+bool CommunicatorSocket::initializeWinsockAndCreateSocket(SOCKET &socketName)
 {
     WSAData wsaData; // initialize
     iResult = WSAStartup(MAKEWORD(2,1), &wsaData);
@@ -21,8 +21,8 @@ bool CommunicatorSocketClass::initializeWinsockAndCreateSocket()
          cout << "WSAStartup() is OK." <<endl;
 
     // create socket
-    communicatorSocket = socket(AF_INET,SOCK_STREAM,IPPROTO_TCP); // create a socket
-    if (communicatorSocket == INVALID_SOCKET) // check for errors
+    socketName = socket(AF_INET,SOCK_STREAM,IPPROTO_TCP); // create a socket
+    if (socketName == INVALID_SOCKET) // check for errors
     {
         cout << "Error at socket(): " << WSAGetLastError();
         WSACleanup();
@@ -31,4 +31,11 @@ bool CommunicatorSocketClass::initializeWinsockAndCreateSocket()
     else
         cout << "Socket() is OK." <<endl;
     return true;
+}
+
+void CommunicatorSocket::currentDate()
+{
+    time_t now =  time(0); //current system time
+    tm* ltm = localtime(&now); // convert time_t (my now variable) to tm structure as localtime (I have a new var called ltm)
+    cout << ltm->tm_mday << "." << ltm->tm_mon << "." << 1900 + ltm->tm_year << "," << ltm->tm_hour << ":" << ltm->tm_min << ":" << ltm->tm_sec <<endl;
 }

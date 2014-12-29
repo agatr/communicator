@@ -12,10 +12,8 @@ class Send // class for sending
 public:
     long iResult;
     SOCKADDR_IN conService;
-    SOCKET sockSocket;
+    // SOCKET sockSocket;
     SOCKET acceptSocket;
-    bool connectToSocket(const char *IP);
-    bool initializeWinsockAndCreateSocket();
-    bool sendMessage();
-    void currentDate();
+    bool connectToSocket(const char *IP, SOCKET socketName);
+    bool sendMessage(SOCKET socketName);
 };
