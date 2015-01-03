@@ -12,5 +12,8 @@ class CommunicatorSocket // class Socket - this class is not dependent on if the
     public:
         long iResult;
         bool initializeWinsockAndCreateSocket(SOCKET &socketName);
-        void currentDate();
+        static void currentDate();
+        bool SendAndReceiveByListeningUser(SOCKET socketName, SOCKET acceptSocketName);
+        bool SendAndReceiveByConnectingUser(SOCKET socketName);
+        static DWORD WINAPI ReadingThread(LPVOID param);
 };

@@ -18,6 +18,5 @@ class Listen // class for part of the project which listens
         int servlen;
         bool bindSocket(SOCKET socketName);
         bool listenOnSocket(SOCKET socketName);
-        bool acceptConnection(SOCKET socketName);
-        bool recvMessage(SOCKET socketName);
+        bool acceptConnection(SOCKET &socketName, SOCKET &acceptSocketName);
 };

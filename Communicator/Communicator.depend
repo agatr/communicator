@@ -148,7 +148,7 @@
 	<string>
 	<stdio.h>
 
-1419851384 source:c:\users\agnieszka\desktop\local\communicator2\listen.cpp
+1419894572 source:c:\users\agnieszka\desktop\local\communicator2\listen.cpp
 	<WinSock2.h>
 	<Windows.h>
 	<iostream>
@@ -158,7 +158,7 @@
 	"Listen.h"
 	"CommunicatorSocket.h"
 
-1419851887 c:\users\agnieszka\desktop\local\communicator2\listen.h
+1419894740 c:\users\agnieszka\desktop\local\communicator2\listen.h
 	<conio.h>
 	<stdio.h>
 	<WinSock2.h>
@@ -166,7 +166,7 @@
 	<iostream>
 	<ctime>
 
-1419852022 c:\users\agnieszka\desktop\local\communicator2\communicatorsocket.h
+1419984121 c:\users\agnieszka\desktop\local\communicator2\communicatorsocket.h
 	<conio.h>
 	<stdio.h>
 	<WinSock2.h>
@@ -174,7 +174,7 @@
 	<iostream>
 	<ctime>
 
-1419851231 source:c:\users\agnieszka\desktop\local\communicator2\send.cpp
+1419864968 source:c:\users\agnieszka\desktop\local\communicator2\send.cpp
 	<WinSock2.h>
 	<Windows.h>
 	<iostream>
@@ -184,7 +184,7 @@
 	"Send.h"
 	"CommunicatorSocket.h"
 
-1419850543 c:\users\agnieszka\desktop\local\communicator2\send.h
+1419864545 c:\users\agnieszka\desktop\local\communicator2\send.h
 	<WinSock2.h>
 	<Windows.h>
 	<iostream>
@@ -208,7 +208,7 @@
 	<string>
 	<stdio.h>
 
-1419849869 source:c:\users\agnieszka\desktop\local\communicator2\communicatorsocket.cpp
+1419983773 source:c:\users\agnieszka\desktop\local\communicator2\communicatorsocket.cpp
 	<conio.h>
 	<stdio.h>
 	<WinSock2.h>
@@ -218,7 +218,54 @@
 	"CommunicatorSocket.h"
 	"Listen.h"
 
-1419850543 source:c:\users\agnieszka\desktop\local\communicator2\main.cpp
+1419895323 source:c:\users\agnieszka\desktop\local\communicator2\main.cpp
+	<WinSock2.h>
+	<Windows.h>
+	<iostream>
+	<string>
+	<stdio.h>
+	<ctime>
+	"Listen.h"
+	"Connect.h"
+	"CommunicatorSocket.h"
+
+1419849869 source:c:\users\agnieszka\desktop\local\communicator2 - new backup\communicatorsocket.cpp
+	<conio.h>
+	<stdio.h>
+	<WinSock2.h>
+	<Windows.h>
+	<iostream>
+	<ctime>
+	"CommunicatorSocket.h"
+	"Listen.h"
+
+1419852022 c:\users\agnieszka\desktop\local\communicator2 - new backup\communicatorsocket.h
+	<conio.h>
+	<stdio.h>
+	<WinSock2.h>
+	<Windows.h>
+	<iostream>
+	<ctime>
+
+1419853289 c:\users\agnieszka\desktop\local\communicator2 - new backup\listen.h
+	<conio.h>
+	<stdio.h>
+	<WinSock2.h>
+	<Windows.h>
+	<iostream>
+	<ctime>
+
+1419853300 source:c:\users\agnieszka\desktop\local\communicator2 - new backup\listen.cpp
+	<WinSock2.h>
+	<Windows.h>
+	<iostream>
+	<string>
+	<stdio.h>
+	<ctime>
+	"Listen.h"
+	"CommunicatorSocket.h"
+
+1419851988 source:c:\users\agnieszka\desktop\local\communicator2 - new backup\main.cpp
 	<WinSock2.h>
 	<Windows.h>
 	<iostream>
@@ -228,4 +275,40 @@
 	"Listen.h"
 	"Send.h"
 	"CommunicatorSocket.h"
+
+1419853289 c:\users\agnieszka\desktop\local\communicator2 - new backup\send.h
+	<WinSock2.h>
+	<Windows.h>
+	<iostream>
+	<string>
+	<stdio.h>
+	<ctime>
+
+1419852960 source:c:\users\agnieszka\desktop\local\communicator2 - new backup\send.cpp
+	<WinSock2.h>
+	<Windows.h>
+	<iostream>
+	<string>
+	<stdio.h>
+	<ctime>
+	"Send.h"
+	"CommunicatorSocket.h"
+
+1419894740 source:c:\users\agnieszka\desktop\local\communicator2\connect.cpp
+	<WinSock2.h>
+	<Windows.h>
+	<iostream>
+	<string>
+	<stdio.h>
+	<ctime>
+	"Connect.h"
+	"CommunicatorSocket.h"
+
+1419894740 c:\users\agnieszka\desktop\local\communicator2\connect.h
+	<WinSock2.h>
+	<Windows.h>
+	<iostream>
+	<string>
+	<stdio.h>
+	<ctime>
 

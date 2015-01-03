@@ -36,10 +36,10 @@
 		</Compiler>
 		<Unit filename="CommunicatorSocket.cpp" />
 		<Unit filename="CommunicatorSocket.h" />
+		<Unit filename="Connect.cpp" />
+		<Unit filename="Connect.h" />
 		<Unit filename="Listen.cpp" />
 		<Unit filename="Listen.h" />
-		<Unit filename="Send.cpp" />
-		<Unit filename="Send.h" />
 		<Unit filename="Socket.cpp" />
 		<Unit filename="Socket.h" />
 		<Unit filename="main.cpp" />

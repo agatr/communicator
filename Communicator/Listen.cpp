@@ -39,35 +39,16 @@ bool Listen::listenOnSocket(SOCKET socketName) // method listening for connectio
     return true;
 }
 
-bool Listen::acceptConnection(SOCKET socketName) // method accepting the connection
+bool Listen::acceptConnection(SOCKET &socketName, SOCKET &acceptSocketName) // method accepting the connection
 {
     servlen = sizeof(service);
     cout << "Waiting for user to connect..." << endl;
 
-    acceptSocket = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
-    if(acceptSocket = accept(socketName, (SOCKADDR*)&service, &servlen))
+    acceptSocketName = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
+    if(acceptSocketName = accept(socketName, (SOCKADDR*)&service, &servlen))
     {
         cout << "A coonnection was found" <<endl<<endl;
     }
-    socketName = acceptSocket;
-    return true;
-}
-
-bool Listen::recvMessage(SOCKET socketName)
-{
-    do
-    {
-        std::string message;
-        char Buffer[512];
-        iResult = recv(socketName, Buffer, 512, 0);
-        Buffer[iResult] = '\0';
-        message = Buffer;
-        std::cout << Buffer <<endl<<endl;
-
-    }while(iResult>0);
-    //enters indefinite loop and sends last message forever
-    /*while((sockSocket != INVALID_SOCKET) || (iResult>0));*/
-    //closesocket(socketName);
-    WSACleanup();
+    socketName = acceptSocketName;
     return true;
 }
