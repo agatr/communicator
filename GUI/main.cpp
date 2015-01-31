@@ -17,9 +17,13 @@ LRESULT CALLBACK WindowProcedure (HWND, UINT, WPARAM, LPARAM);
 
 /*  Make the class name into a global variable  */
 TCHAR szClassName[ ] = _T("CodeBlocksWindowsApp");
-HWND TextBox, SendButton, TextField, RadioButton[2], IPTextBox, ConnectButton, ListenButton;
+HWND TextBox, SendButton, TextField, RadioButton[2], IPTextBox, ConnectButton, ListenButton, UsersList;
 long iResult;
-
+SOCKET commSocket;
+SOCKET acceptSocket;
+CommunicatorSocket communicatorObj;
+Connect connectObj;
+Listen listenObj;
 
 int WINAPI WinMain (HINSTANCE hThisInstance,
                      HINSTANCE hPrevInstance,
@@ -45,7 +49,7 @@ int WINAPI WinMain (HINSTANCE hThisInstance,
     wincl.cbClsExtra = 0;                      /* No extra bytes after the window class */
     wincl.cbWndExtra = 0;                      /* structure or the window instance */
     /* Use Windows's default colour as the background of the window */
-    wincl.hbrBackground = (HBRUSH) COLOR_BACKGROUND;
+    wincl.hbrBackground = (HBRUSH) COLOR_BACKGROUND+7;
 
     /* Register the window class, and if it fails quit the program */
     if (!RegisterClassEx (&wincl))
@@ -55,17 +59,20 @@ int WINAPI WinMain (HINSTANCE hThisInstance,
     hwnd = CreateWindowEx (
            0,                   /* Extended possibilites for variation */
            szClassName,         /* Classname */
-           _T("Communicator"),       /* Title Text */
+           _T("Communicator"),  /* Title Text */
            WS_OVERLAPPEDWINDOW, /* default window */
            CW_USEDEFAULT,       /* Windows decides the position */
            CW_USEDEFAULT,       /* where the window ends up on the screen */
-           500,                 /* The programs width */
+           660,                 /* The programs width */
            370,                 /* and height in pixels */
            HWND_DESKTOP,        /* The window is a child-window to desktop */
            NULL,                /* No menu */
            hThisInstance,       /* Program Instance handler */
            NULL                 /* No Window Creation data */
            );
+
+    /* Socket initialization */
+    communicatorObj.initializeWinsockAndCreateSocket(commSocket);
 
     /* Make the window visible on the screen */
     ShowWindow (hwnd, nCmdShow);
@@ -123,22 +130,28 @@ LRESULT CALLBACK WindowProcedure (HWND hwnd, UINT message, WPARAM wParam, LPARAM
                                    130, 40, 200, 20,
                                    hwnd, NULL, NULL, NULL);
 
+            UsersList = CreateWindow("STATIC",
+                                   "",
+                                   WS_BORDER | WS_CHILD | WS_VISIBLE,
+                                   485, 10, 150, 310,
+                                   hwnd, NULL, NULL, NULL);
+
             //=====BUTTONS=====//
             ListenButton = CreateWindow("BUTTON",
                          "Listen",
-                         WS_VISIBLE | WS_CHILD | WS_BORDER,
+                         WS_VISIBLE | WS_CHILD,
                          410, 10, 65, 20,
                          hwnd, (HMENU) 1, NULL, NULL);
 
             ConnectButton = CreateWindow("BUTTON",
                          "Connect",
-                         WS_VISIBLE | WS_CHILD | WS_BORDER,
+                         WS_VISIBLE | WS_CHILD,
                          410, 40, 65, 20,
                          hwnd, (HMENU) 2, NULL, NULL);
 
             SendButton = CreateWindow("BUTTON",
                          "Send",
-                         WS_VISIBLE | WS_CHILD | WS_BORDER,
+                         WS_VISIBLE | WS_CHILD,
                          410, 300, 65, 20,
                          hwnd, (HMENU) 3, NULL, NULL);
             break;
@@ -148,39 +161,30 @@ LRESULT CALLBACK WindowProcedure (HWND hwnd, UINT message, WPARAM wParam, LPARAM
             {
                 case 1:
                     {
-                        //-----This part should be written once (instead of writing it twice,
-                        // once for listen part and once for connect part,
-                        // BUT I dont know where to put this part of the code so that it works
-                        SOCKET commSocket;
-                        SOCKET acceptSocket;
-                        CommunicatorSocket communicatorObj;
-                        communicatorObj.initializeWinsockAndCreateSocket(commSocket);
-                        //-----
-
-                        Listen listenObj; // I create an object of class Listen
-                        listenObj.bindSocket(commSocket); // I call the method to bind the socket
-                        listenObj.listenOnSocket(commSocket); // I call the method to listen for the incoming connection
-                        listenObj.acceptConnection(commSocket, acceptSocket); // accept the connection if any
-                        communicatorObj.SendAndReceiveByListeningUser(commSocket, acceptSocket);
+                        // I check if the socket is initialized
+                        if ((communicatorObj.initializeWinsockAndCreateSocket(commSocket)) == TRUE)
+                        {
+                            listenObj.bindSocket(commSocket);
+                            listenObj.listenOnSocket(commSocket);
+                            listenObj.acceptConnection(commSocket, acceptSocket); // accept the connection if any
+                            //communicatorObj.SendAndReceiveByListeningUser(commSocket, acceptSocket);*/
+                        }
+                        else
+                            cout << "Something went wrong, please restart the program.";
                     }
                 break;
 
                 case 2:
                     {
-                        //-----This part should be written once (instead of writing it twice,
-                        // once for listen part and once for connect part,
-                        // BUT I dont know where to put this part of the code so that it works
-                        string IP;
-                        SOCKET commSocket;
-                        SOCKET acceptSocket;
-                        CommunicatorSocket communicatorObj;
-                        communicatorObj.initializeWinsockAndCreateSocket(commSocket);
-                        //-----
+                        string IP = "192.168.1.101";
 
-                        Connect connectObj; // create an object of class Send
-                        IP = "192.168.1.101";
-                        connectObj.connectToSocket(IP.c_str(), commSocket); // connect the user to the inputed IP address
-                        communicatorObj.SendAndReceiveByConnectingUser(commSocket);
+                        if ((communicatorObj.initializeWinsockAndCreateSocket(commSocket)) == TRUE)
+                        {
+                            connectObj.connectToSocket(IP.c_str(), acceptSocket); // connect the user to the inputed IP address
+                            //communicatorObj.SendAndReceiveByConnectingUser(acceptSocket);
+                        }
+                        else
+                            cout << "Something went wrong, please restart the program.";
                     }
                 break;
 

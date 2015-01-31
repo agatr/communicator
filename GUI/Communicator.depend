@@ -322,7 +322,7 @@
 	"Connect.h"
 	"CommunicatorSocket.h"
 
-1419894740 c:\users\agnieszka\desktop\local\trygui\connect.h
+1422705479 c:\users\agnieszka\desktop\local\trygui\connect.h
 	<WinSock2.h>
 	<Windows.h>
 	<iostream>
@@ -338,7 +338,7 @@
 	<iostream>
 	<ctime>
 
-1419894572 source:c:\users\agnieszka\desktop\local\trygui\listen.cpp
+1422706579 source:c:\users\agnieszka\desktop\local\trygui\listen.cpp
 	<WinSock2.h>
 	<Windows.h>
 	<iostream>
@@ -348,7 +348,7 @@
 	"Listen.h"
 	"CommunicatorSocket.h"
 
-1419894740 c:\users\agnieszka\desktop\local\trygui\listen.h
+1422706579 c:\users\agnieszka\desktop\local\trygui\listen.h
 	<conio.h>
 	<stdio.h>
 	<WinSock2.h>
@@ -366,7 +366,7 @@
 	"CommunicatorSocket.h"
 	"Listen.h"
 
-1422285662 source:c:\users\agnieszka\desktop\local\trygui\main.cpp
+1422713163 source:c:\users\agnieszka\desktop\local\trygui\main.cpp
 	<WinSock2.h>
 	<Windows.h>
 	<iostream>

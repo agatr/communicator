@@ -12,6 +12,6 @@ class Connect // class for sending
 public:
     long iResult;
     SOCKADDR_IN conService;
-    SOCKET acceptSocket;
+    //SOCKET acceptSocket;
     bool connectToSocket(const char *IP, SOCKET &socketName);
 };
